@@ -10,4 +10,7 @@ class Client < ApplicationRecord
     "Muy interesado" => 1,
     "Cliente" => 2
   }
+
+  # Validaciones
+  validates :name, :status, :email, presence: true
 end
