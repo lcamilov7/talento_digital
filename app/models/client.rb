@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
   belongs_to :user
-  has_many :conversations
+  has_many :conversations, dependent: :destroy
 
   has_many :client_interests
   has_many :interests, through: :client_interests
