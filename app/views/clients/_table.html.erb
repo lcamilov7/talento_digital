@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Status</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Interests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.email %></td>
+        <td><%= client.phone %></td>
+        <td><%= client.status %></td>
+        <td><%= client.user.name %></td>
+        <td><% client.interests.each do |interest| %>
+            <%= interest.name %>
+          <%end  %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -20,7 +20,7 @@ puts "######### Fin creación de interest ########"
 puts "Creando usuarios"
 user1 = User.create(email: "admin@gmail.com", password: "123456", name: "Andres Ibanez", admin: true)
 user2 = User.create(email: "usuario1@gmail.com", password: "123456", name: "Luis Valencia")
-user2 = User.create(email: "usuario2@gmail.com", password: "123456", name: "Joaquin Casanova")
+user3 = User.create(email: "usuario2@gmail.com", password: "123456", name: "Joaquin Casanova")
 puts "######### Fin creación de usuarios ########"
 
 # Creando cliente y interest
@@ -29,7 +29,7 @@ cliente1 = user1.clients.build(
   status: 1,
   name: "Juan",
   email: "juan@gmail.com",
-  phone: "3214765"
+  phone: "3214765",
   interest_ids: [analitica.id, mentoria.id]
 )
 cliente1.save!
@@ -37,7 +37,7 @@ cliente2 = user1.clients.build(
   status: 0,
   name: "Ernesto",
   email: "Ernesto@gmail.com",
-  phone: "3213792"
+  phone: "3213792",
   interest_ids: [legal.id]
 )
 cliente2.save!
@@ -46,7 +46,7 @@ cliente3 = user2.clients.build(
   status: 2,
   name: "Sara",
   email: "Sara@gmail.com",
-  phone: "3214985"
+  phone: "3214985",
   interest_ids: [consultoria.id, mentoria.id]
 )
 cliente3.save!
@@ -54,7 +54,7 @@ cliente4 = user2.clients.build(
   status: 1,
   name: "Laura",
   email: "Laura@gmail.com",
-  phone: "3176988"
+  phone: "3176988",
   interest_ids: [acompanamiento.id]
 )
 cliente4.save!
@@ -63,7 +63,7 @@ cliente5 = user3.clients.build(
   status: 0,
   name: "Simon",
   email: "simon@gmail.com",
-  phone: "3210936"
+  phone: "3210936",
   interest_ids: [consultoria.id, legal.id]
 )
 cliente5.save!
@@ -71,7 +71,7 @@ cliente6 = user3.clients.build(
   status: 2,
   name: "Miguel",
   email: "miguel@gmail.com",
-  phone: "32101348"
+  phone: "32101348",
   interest_ids: [mentoria.id, analitica.id, legal.id]
 )
 cliente6.save!
