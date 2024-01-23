@@ -1,0 +1,27 @@
+<div class="container">
+  <%= simple_form_for @client do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :interest_ids,
+                as: :select,
+                input_html: {
+                  data: {
+                    controller: "dropdown"
+                  },
+                  multiple: true,
+                  },
+                collection: @interests,
+                label: 'Select a service'
+                %>
+    <%= f.input :status, as: :select, collection: Client.statuses.keys %>
+    <div class="row">
+      <div class="col-1 me-5">
+        <%= f.submit %>
+      </div>
+      <div class="col-2">
+        <%= link_to "Back", clients_path, class: "btn btn-volver" %>
+      </div>
+    </div>
+  <% end %>
+</div>
