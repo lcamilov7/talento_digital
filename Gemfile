@@ -38,7 +38,7 @@ gem "jbuilder"
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
-gem "simple_form", github: "heartcombo/simple_form"
+gem "simple_form"
 gem "sassc-rails"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

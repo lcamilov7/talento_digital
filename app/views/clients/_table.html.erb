@@ -1,27 +1,42 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Status</th>
-      <th scope="col">Seller</th>
-      <th scope="col">Interests</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% clients.each do |client| %>
+<div class="container pt-3">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= client.name %></td>
-        <td><%= client.email %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.status %></td>
-        <td><%= client.user.name %></td>
-        <td><% client.interests.each do |interest| %>
-            <%= interest.name %>
-          <%end  %>
-        </td>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Status</th>
+        <th scope="col">Seller</th>
+        <th scope="col">Interests</th>
+        <th scope="col">Entry date</th>
+        <th scope="col">Conversations</th>
+        <th scope="col">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% clients.each do |client| %>
+        <tr>
+          <td><%= client.name %></td>
+          <td><%= client.email %></td>
+          <td><%= client.phone %></td>
+          <td><%= client.status %></td>
+          <td><%= client.user.name %></td>
+          <td><% client.interests.each do |interest| %>
+              <%= interest.name %>
+            <%end  %>
+          </td>
+          <td><%= client.created_at.strftime("%d/%m/%Y") %></td>
+          <td><%= client.conversations.count %></td>
+          <td>
+            <div class="d-flex justify-content-center">
+              <%= link_to client_conversations_path(client), class: "pe-1" do %>
+                <i class="fa-solid fa-comment text-secondary"></i>
+              <% end %>
+              <%= link_to 'Destroy', { action: :destroy, id: client.id }, method: :delete %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
