@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "clients#index"
 
   resources :clients, only: %i[index destroy show new create] do
-    resources :conversations, only: %i[index new create]
+    resources :conversations, only: %i[new create]
   end
 
 end
