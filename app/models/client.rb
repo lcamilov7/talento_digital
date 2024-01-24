@@ -2,7 +2,7 @@ class Client < ApplicationRecord
   belongs_to :user
   has_many :conversations, dependent: :destroy
 
-  has_many :client_interests
+  has_many :client_interests, dependent: :destroy
   has_many :interests, through: :client_interests
 
   enum status: {
