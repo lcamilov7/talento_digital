@@ -5,11 +5,17 @@ class ClientsController < ApplicationController
     @client_0 = Client.where(status: 0).count
     @client_1 = Client.where(status: 1).count
     @client_2 = Client.where(status: 2).count
-    if current_user.admin
-      @clients = Client.all
+
+    if params[:query].present?
+      @clients = Client.client_search(params[:query])
     else
-      @clients = Client.where(user_id: current_user.id)
+      @clients = Client.all
     end
+    # if current_user.admin
+    #   @clients = Client.all
+    # else
+    #   @clients = Client.where(user_id: current_user.id)
+    # end
   end
 
   def show

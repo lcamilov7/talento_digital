@@ -13,4 +13,12 @@ class Client < ApplicationRecord
 
   # Validaciones
   validates :name, :status, :email, presence: true
+
+  # PG Search
+  include PgSearch::Model
+  pg_search_scope :client_search,
+  against: [ :status ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

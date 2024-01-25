@@ -14,7 +14,10 @@
     </div>
   </div>
   <h4><%= current_user.name %> clients</h4>
-  <%= link_to "Add Client", new_client_path, class: "btn btn-secondary" %>
+  <div class="d-flex">
+    <%= link_to "Add Client", new_client_path, class: "btn btn-secondary" %>
+    
+  </div>
 </div>
 <%= render "clients/table", clients: @clients %>
 <%= console %>
