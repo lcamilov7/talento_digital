@@ -1,13 +1,12 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
-  <div class="container-fluid p-3" style="background-color: rgba(0, 0, 0, 0.3); height: 100%; width: 100%">
-    <h4>Portal CRM</h4>
-    <div>
-        <% if user_signed_in? %>
-          <%= link_to "Prospects", clients_path, class: "btn btn-secondary" %>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+<% if user_signed_in? %>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+    <div class="container-fluid p-3" style="background-color: rgba(0, 0, 0, 0.3); height: 100%; width: 100%">
+      <h4>Portal CRM</h4>
+      <div>
+            <%= link_to "Prospects", clients_path, class: "btn btn-secondary" %>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
             <%= cl_image_tag current_user.photo.key, height: 50, width: 50, crop: :fill, style: "border-radius: 50%;" %>
-        <% else %>
-        <% end %>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+<% end %>
