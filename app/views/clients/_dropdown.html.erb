@@ -3,6 +3,7 @@
     Status
   </button>
   <div class="dropdown-menu">
+    <%= link_to "Todos", clients_path, class: "dropdown-item" %>
     <%# cuando recorro un hash el primr argumento es el key y el segundo key values %>
     <% Client.statuses.each do |description, number| %>
       <%= link_to description, clients_path(query: number), class: "dropdown-item" %>

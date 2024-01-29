@@ -80,3 +80,6 @@ gem "devise"
 
 # PG Search
 gem "pg_search", "~> 2.3"
+
+# Cloudinary
+gem "cloudinary"

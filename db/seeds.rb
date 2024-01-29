@@ -1,3 +1,5 @@
+require "open-uri"
+
 # Borrando datos
 puts "Borrando datos"
 ClientInterest.destroy_all
@@ -18,9 +20,20 @@ puts "######### Fin creación de interest ########"
 
 # Creando usuarios y sus clientes
 puts "Creando usuarios"
-user1 = User.create(email: "admin@gmail.com", password: "123456", name: "Andres Ibanez", admin: true)
-user2 = User.create(email: "usuario1@gmail.com", password: "123456", name: "Luis Valencia")
-user3 = User.create(email: "usuario2@gmail.com", password: "123456", name: "Joaquin Casanova")
+user1 = User.new(email: "admin@gmail.com", password: "123456", name: "Andres Ibanez", admin: true)
+file = URI.open("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+user1.photo.attach(io: file, filename: "admin.png", content_type: "image/png")
+user1.save!
+
+user2 = User.new(email: "usuario1@gmail.com", password: "123456", name: "Luis Valencia")
+file = URI.open("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+user2.photo.attach(io: file, filename: "user1.png", content_type: "image/png")
+user2.save!
+
+user3 = User.new(email: "usuario2@gmail.com", password: "123456", name: "Joaquin Casanova")
+file = URI.open("https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=2363&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+user3.photo.attach(io: file, filename: "user2.png", content_type: "image/png")
+user3.save!
 puts "######### Fin creación de usuarios ########"
 
 # Creando cliente y interest

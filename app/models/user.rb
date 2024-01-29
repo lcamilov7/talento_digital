@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # Associations
   has_many :clients
   has_many :conversations
+  has_one_attached :photo
 end

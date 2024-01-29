@@ -15,9 +15,10 @@
   </div>
   <h4><%= current_user.name %> clients</h4>
   <div class="d-flex">
-    <%= link_to "Add Client", new_client_path, class: "btn btn-secondary" %>
+    <%= link_to "Add Client", new_client_path, class: "btn btn-primary" %>
 
   </div>
 </div>
-<%= render "clients/table", clients: @clients %>
-<%= console %>
+<div class="overflow-scroll">
+  <%= render "clients/table", clients: @clients %>
+</div>
