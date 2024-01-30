@@ -1,24 +1,26 @@
-<div class="container">
-  <div class="container  row m-4 d-flex justify-content-center text-center">
-    <div class="col-4 border p-4">
-      <h3><%= Client.where(status: 0, user: current_user).count %>/<%= @client_0 %></h3>
-      <p class="mb-0">Prospecto</p>
+<div style="background-color: red; height: 100vh; background:linear-gradient(160deg, gray, gray 60%, black 60%, black); color: whitesmoke;">
+  <div class="container">
+    <div class="container py-4 row d-flex justify-content-center text-center">
+      <div class="col-4 border p-4">
+        <h3><%= Client.where(status: 0, user: current_user).count %>/<%= @client_0 %></h3>
+        <p class="mb-0">Prospecto</p>
+      </div>
+      <div class="col-4 border p-4">
+        <h3><%= Client.where(status: 1, user: current_user).count %>/<%= @client_1 %></h3>
+        <p class="pb-0">Muy interesado</p>
+      </div>
+      <div class="col-4 border p-4">
+        <h3><%= Client.where(status: 2, user: current_user).count %>/<%= @client_2 %></h3>
+        <p class="pb-0">Cliente</p>
+      </div>
     </div>
-    <div class="col-4 border p-4">
-      <h3><%= Client.where(status: 1, user: current_user).count %>/<%= @client_1 %></h3>
-      <p class="pb-0">Muy interesado</p>
-    </div>
-    <div class="col-4 border p-4">
-      <h3><%= Client.where(status: 2, user: current_user).count %>/<%= @client_2 %></h3>
-      <p class="pb-0">Cliente</p>
-    </div>
-  </div>
-  <h4><%= current_user.name %> clients</h4>
-  <div class="d-flex">
-    <%= link_to "Add Client", new_client_path, class: "btn btn-primary" %>
+    <h4><%= current_user.name %> clients</h4>
+    <div class="d-flex">
+      <%= link_to "Add Client", new_client_path, class: "btn btn-primary" %>
 
+    </div>
   </div>
-</div>
-<div class="overflow-scroll">
-  <%= render "clients/table", clients: @clients %>
+  <div class=" container overflow-scroll" style="height: 300px;">
+    <%= render "clients/table", clients: @clients %>
+  </div>
 </div>
